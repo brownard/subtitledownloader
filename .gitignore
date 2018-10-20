@@ -1,0 +1,9 @@
+/_ReSharper.SubtitleDownloader
+/SubtitleDownloader/bin
+/SubtitleDownloaderTests/bin
+/SubtitleDownloaderTests/obj
+/SubtitleDownloader/obj
+/*.user
+/Release/*.mpe1
+/SubtitleDownloader.suo
+/SubtitleDownloader.6.0.ReSharper.user
