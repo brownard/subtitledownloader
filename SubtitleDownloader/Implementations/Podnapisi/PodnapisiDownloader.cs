@@ -56,6 +56,11 @@ namespace SubtitleDownloader.Implementations.Podnapisi
             string archiveFile = FileUtils.GetTempFileName();
 
             HtmlWeb web = new HtmlWeb();
+            web.PreRequest += request => 
+            {
+                request.Accept = "*/*";
+                return true;
+            };
             HtmlDocument seriesListingPage = web.Load(url);
 
             HtmlNodeCollection links = seriesListingPage.DocumentNode.SelectNodes("//form");
@@ -113,6 +118,9 @@ namespace SubtitleDownloader.Implementations.Podnapisi
                 foreach (XmlNode subtitleNode in subtitleNodes)
                 {
                     string subtitleId = subtitleNode.SelectSingleNode("url")?.InnerText;
+                    if (!String.IsNullOrEmpty(subtitleId))
+                        subtitleId = subtitleId.Replace("http://", "https://");
+
                     string releaseName = subtitleNode.SelectSingleNode("release")?.InnerText;
 
                     if (!String.IsNullOrEmpty(releaseName))
