@@ -15,8 +15,6 @@ namespace SubtitleDownloader.Implementations.Podnapisi
 
         private readonly string searchUrlBase = "https://www.podnapisi.net/ppodnapisi/search?sXML=1";
 
-        private XmlDocument xmlDoc;
-
         private int searchTimeout;
 
         public string GetName()
@@ -107,33 +105,15 @@ namespace SubtitleDownloader.Implementations.Podnapisi
 
                 HttpWebResponse response = (HttpWebResponse) request.GetResponse();
 
-                XmlReaderSettings settings = new XmlReaderSettings();
-                settings.ProhibitDtd = false;
-                settings.ValidationType = ValidationType.None;
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(response.GetResponseStream());
 
-                XmlReader reader = XmlReader.Create(response.GetResponseStream(), settings);
-
-                xmlDoc = new XmlDocument();
-                xmlDoc.Load(reader);
-
-                XmlNodeList subtitleNodes = xmlDoc.GetElementsByTagName("subtitle");
+                XmlNodeList subtitleNodes = xmlDoc.SelectNodes("results/subtitle");
 
                 foreach (XmlNode subtitleNode in subtitleNodes)
                 {
-                    string subtitleId = null;
-                    string releaseName = null;
-
-                    for (int i = 0; i < subtitleNode.ChildNodes.Count; i++)
-                    {
-                        if (subtitleNode.ChildNodes[i].Name == "url")
-                        {
-                            subtitleId = subtitleNode.ChildNodes[i].InnerText;
-                        }
-                        else if (subtitleNode.ChildNodes[i].Name == "release")
-                        {
-                            releaseName = subtitleNode.ChildNodes[i].InnerText.TrimEnd().TrimStart();
-                        }
-                    }
+                    string subtitleId = subtitleNode.SelectSingleNode("url")?.InnerText;
+                    string releaseName = subtitleNode.SelectSingleNode("release")?.InnerText;
 
                     if (!String.IsNullOrEmpty(releaseName))
                     {
