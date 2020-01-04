@@ -99,12 +99,6 @@
     <Compile Include="Core\Subtitle.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Lib\CookComputing.XmlRpcV2.dll" />
-    <Content Include="Lib\HtmlAgilityPack.dll" />
-    <Content Include="Lib\SharpCompress.3.5.dll" />
-    <Content Include="Tools\ILMerge.exe" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Configuration.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

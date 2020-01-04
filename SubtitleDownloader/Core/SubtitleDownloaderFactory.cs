@@ -72,7 +72,7 @@ namespace SubtitleDownloader.Core
                         downloaderClasses.AddRange(TypesImplementingInterface(assembly,
                                                                               typeof(ISubtitleDownloader)));
                     }
-                    catch (Exception e)
+                    catch
                     {
                         // Cannot do anything
                     }

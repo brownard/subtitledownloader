@@ -173,7 +173,7 @@ namespace SubtitleDownloader.Implementations.Subscene
                     }
                 }
             }
-            catch (Exception e)
+            catch
             {
                 // Unable to do anything..
             }

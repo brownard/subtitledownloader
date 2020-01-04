@@ -148,7 +148,7 @@ namespace SubtitleDownloader.Implementations.TVSubtitles
                         {
                             currentEpisode = Convert.ToInt32(splitted[1]);
                         }
-                        catch (Exception e)
+                        catch
                         {
                             continue;
                         }
