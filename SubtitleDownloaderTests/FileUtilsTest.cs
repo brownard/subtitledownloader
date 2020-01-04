@@ -90,7 +90,7 @@ namespace SubtitleDownloaderTests
             string languageCode = "nld";
             string videoFile = @"C:foo.release.avi";
 
-            string expected = @"C:\\foo.release.Dutch.srt";
+            string expected = @"C:\foo.release.Dutch.srt";
             string actual = FileUtils.GetFileNameForSubtitle(subtitleFile, languageCode, videoFile);
 
             Assert.AreEqual(expected, actual);

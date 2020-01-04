@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using SharpCompress.Common;
-using SharpCompress.Reader;
+using SharpCompress.Readers;
 using SubtitleDownloader.Core;
 
 namespace SubtitleDownloader.Util
