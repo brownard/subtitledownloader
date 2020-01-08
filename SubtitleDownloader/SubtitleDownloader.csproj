@@ -94,7 +94,6 @@
     <Compile Include="Core\ISubtitleDownloader.cs" />
     <Compile Include="Implementations\OpenSubtitles\OpenSubtitlesConfiguration.cs" />
     <Compile Include="Implementations\OpenSubtitles\OpenSubtitlesDownloader.cs" />
-    <Compile Include="Implementations\Sublight\SublightAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Subtitle.cs" />
   </ItemGroup>
@@ -107,7 +106,6 @@
     <Compile Include="Core\SubtitleDownloaderFactory.cs" />
     <Compile Include="Implementations\MovieSubtitles\MovieSubtitlesDownloader.cs" />
     <Compile Include="Implementations\Podnapisi\PodnapisiDownloader.cs" />
-    <Compile Include="Implementations\S4U\S4UDownloader.cs" />
     <Compile Include="Implementations\Subscene\SubsceneDownloader.cs" />
     <Compile Include="Core\Languages.cs" />
     <Compile Include="Implementations\SubtitleSource\SubtitleSourceDownloader.cs" />
@@ -117,7 +115,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Implementations\Sublight\SublightDownloader.cs" />
     <Compile Include="Core\SearchQueries.cs" />
     <Compile Include="Util\Decoder.cs" />
     <Compile Include="Util\FileUtils.cs" />

@@ -121,16 +121,4 @@
     <value>FIXME</value>
     <comment>User agent identifier string for OpenSubtitles API</comment>
   </data>
-  <data name="SublightApiKey" xml:space="preserve">
-    <value>FIXME</value>
-    <comment>API key string for Sublight API</comment>
-  </data>
-  <data name="SubLightClientId" xml:space="preserve">
-    <value>FIXME</value>
-    <comment>Client identifier string for Sublight API</comment>
-  </data>
-  <data name="S4UApiKey" xml:space="preserve">
-    <value>FIXME</value>
-    <comment>Api key string for S4UApi</comment>
-  </data>
 </root>

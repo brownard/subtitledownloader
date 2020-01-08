@@ -84,8 +84,6 @@
     <Compile Include="OpenSubtitlesDownloaderTest.cs" />
     <Compile Include="PodnapisiDownloaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="S4UDownloaderTest.cs" />
-    <Compile Include="SublightDownloaderTest.cs" />
     <Compile Include="SubsceneDownloaderTest.cs" />
     <Compile Include="SubtitleDownloaderFactoryTest.cs" />
     <Compile Include="SubtitleSourceDownloaderV2Test.cs" />

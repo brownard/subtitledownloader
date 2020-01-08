@@ -82,7 +82,7 @@ namespace SubtitleDownloaderTests
         {
             var names = SubtitleDownloaderFactory.GetSubtitleDownloaderNames();
 
-            Assert.AreEqual(7, names.Count);
+            Assert.AreEqual(5, names.Count);
         }
     }
 }
