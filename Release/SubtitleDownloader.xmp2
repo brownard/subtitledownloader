@@ -223,7 +223,7 @@ To use SubtitleDownloader with MediaPortal, you must install SubCentral plugin.<
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=221&amp;cf_id=24</OnlineLocation>
     <ReleaseDate>2017-10-27T16:32:19</ReleaseDate>
     <Tags>subtitles, subs, closed captions</Tags>
-    <Location>D:\dev\SubtitleDownloader\Release\[Name]-[Version].mpe1</Location>
+    <Location>.\[Name]-[Version].mpe1</Location>
     <Params>
       <Items>
         <SectionParam Name="Icon">
@@ -277,7 +277,7 @@ To use SubtitleDownloader with MediaPortal, you must install SubCentral plugin.<
   <ProjectSettings>
     <FolderGroups />
     <ProjectFilename>SubtitleDownloader.xmp2</ProjectFilename>
-    <UpdatePath1>D:\dev\SubtitleDownloader\Release\update.xml</UpdatePath1>
+    <UpdatePath1>update.xml</UpdatePath1>
     <UpdatePath2 />
     <UpdatePath3 />
   </ProjectSettings>
