@@ -3,11 +3,11 @@
   <Version>2.0</Version>
   <Groups>
     <Items>
-      <GroupItem Name="Default">
+      <GroupItem Name="Plugin">
         <ParentGroup />
-        <DisplayName>Default</DisplayName>
+        <DisplayName>Plugin binaries</DisplayName>
         <DefaulChecked>true</DefaulChecked>
-        <Description>Default</Description>
+        <Description>Dll files required to run the plugin.</Description>
         <Files>
           <Items>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
@@ -17,11 +17,21 @@
               <ZipFileName>Installer{CopyFile}\{de214a23-2159-4bd3-9652-a354f38365b0}-SubtitleDownloader.dll</ZipFileName>
               <DestinationFilename>%Base%\SubtitleDownloader.dll</DestinationFilename>
             </FileItem>
+          </Items>
+        </Files>
+      </GroupItem>
+      <GroupItem Name="OpenSubtitlesConfig">
+        <ParentGroup />
+        <DisplayName>OpenSubtitles configuration</DisplayName>
+        <DefaulChecked>false</DefaulChecked>
+        <Description>Template for account info for OpenSubtitles</Description>
+        <Files>
+          <Items>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
               <Param1 />
               <UpdateOption>NeverOverwrite</UpdateOption>
               <LocalFileName>..\SubtitleDownloader\Implementations\OpenSubtitles\OpenSubtitlesConfiguration.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{a7c62774-c83f-4481-a8ba-bca4ec00f6ce}-OpenSubtitlesConfiguration.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{50ab86f8-d7ce-4dd3-9599-6192e845a0e7}-OpenSubtitlesConfiguration.xml</ZipFileName>
               <DestinationFilename>%Base%\SubtitleDownloaders\OpenSubtitlesConfiguration.xml</DestinationFilename>
             </FileItem>
           </Items>
@@ -103,6 +113,41 @@ Changelog 3.0.18
         </Actions>
         <IncludedGroups />
         <PanelName>Readme Information</PanelName>
+        <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
+      </SectionItem>
+      <SectionItem Guid="9b06c900-17bb-463e-9613-2dadbac2e735" Name="Tree View Selector" ConditionGroup="">
+        <Params>
+          <Items>
+            <SectionParam Name="Header Title">
+              <Value />
+              <ValueType>String</ValueType>
+              <Description>Header title</Description>
+            </SectionParam>
+            <SectionParam Name="Header description">
+              <Value />
+              <ValueType>String</ValueType>
+              <Description>Description of section, shown in under section title</Description>
+            </SectionParam>
+            <SectionParam Name="Header image">
+              <Value />
+              <ValueType>File</ValueType>
+              <Description>Image in upper right part</Description>
+            </SectionParam>
+            <SectionParam Name="Description ">
+              <Value />
+              <ValueType>String</ValueType>
+              <Description>Description of this operation</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+        <Actions>
+          <Items />
+        </Actions>
+        <IncludedGroups>
+          <string>Plugin</string>
+          <string>OpenSubtitlesConfig</string>
+        </IncludedGroups>
+        <PanelName>Tree View Selector</PanelName>
         <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
       </SectionItem>
       <SectionItem Guid="b06cee33-10ee-4b79-b50e-6ee3618f493b" Name="Install Section" ConditionGroup="">
@@ -203,8 +248,8 @@ Changelog 3.0.18
     <Name>SubtitleDownloader</Name>
     <Id>50d7c352-8ae1-406d-b899-2131e03d4f1e</Id>
     <Author>seco</Author>
-    <HomePage>http://www.assembla.com/spaces/subtitledownloader/</HomePage>
-    <ForumPage>http://forum.team-mediaportal.com/threads/subtitledownloader-3-0-3.71651/</ForumPage>
+    <HomePage>https://www.team-mediaportal.com/extensions/movies-videos/subtitledownloader</HomePage>
+    <ForumPage>https://forum.team-mediaportal.com/threads/subtitledownloader.71651/</ForumPage>
     <UpdateUrl>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=221&amp;cf_id=52</UpdateUrl>
     <Version>
       <Major>3</Major>
@@ -268,8 +313,8 @@ To use SubtitleDownloader with MediaPortal, you must install SubCentral plugin.<
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
         <UpdateOption>NeverOverwrite</UpdateOption>
-        <LocalFileName>..\OpenSubtitlesConfiguration.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{a7c62774-c83f-4481-a8ba-bca4ec00f6ce}-OpenSubtitlesConfiguration.xml</ZipFileName>
+        <LocalFileName>..\SubtitleDownloader\Implementations\OpenSubtitles\OpenSubtitlesConfiguration.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{50ab86f8-d7ce-4dd3-9599-6192e845a0e7}-OpenSubtitlesConfiguration.xml</ZipFileName>
         <DestinationFilename>%Base%\SubtitleDownloaders\OpenSubtitlesConfiguration.xml</DestinationFilename>
       </FileItem>
     </Items>
