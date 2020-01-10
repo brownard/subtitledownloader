@@ -168,6 +168,8 @@ cd $(TargetDir)
 del SubtitleDownloader_UNMERGED.dll
 ren SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll
 call "$(SolutionDir)packages\ILMerge.3.0.29\tools\net452\ilmerge.exe" /out:SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll CookComputing.XmlRpcV2.dll HtmlAgilityPack.dll SharpCompress.dll
+cd $(SolutionDir)Release
+"$(ProgramFiles)\Team MediaPortal\MediaPortal\MpeMaker" SubtitleDownloader.xmp2 /B /UpdateXML
 )</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
