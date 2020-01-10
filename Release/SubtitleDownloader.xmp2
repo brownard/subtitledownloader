@@ -19,8 +19,8 @@
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\OpenSubtitlesConfiguration.xml</LocalFileName>
+              <UpdateOption>NeverOverwrite</UpdateOption>
+              <LocalFileName>..\SubtitleDownloader\Implementations\OpenSubtitles\OpenSubtitlesConfiguration.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{a7c62774-c83f-4481-a8ba-bca4ec00f6ce}-OpenSubtitlesConfiguration.xml</ZipFileName>
               <DestinationFilename>%Base%\SubtitleDownloaders\OpenSubtitlesConfiguration.xml</DestinationFilename>
             </FileItem>
@@ -267,7 +267,7 @@ To use SubtitleDownloader with MediaPortal, you must install SubCentral plugin.<
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <UpdateOption>NeverOverwrite</UpdateOption>
         <LocalFileName>..\OpenSubtitlesConfiguration.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{a7c62774-c83f-4481-a8ba-bca4ec00f6ce}-OpenSubtitlesConfiguration.xml</ZipFileName>
         <DestinationFilename>%Base%\SubtitleDownloaders\OpenSubtitlesConfiguration.xml</DestinationFilename>

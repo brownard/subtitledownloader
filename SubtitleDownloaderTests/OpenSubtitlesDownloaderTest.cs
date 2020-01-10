@@ -1,6 +1,7 @@
 ﻿using SubtitleDownloader.Implementations.OpenSubtitles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SubtitleDownloader.Core;
+using SubtitleDownloader.Util;
 using System.Collections.Generic;
 using System.IO;
 
@@ -15,8 +16,7 @@ namespace SubtitleDownloaderTests
     [TestClass()]
     public class OpenSubtitlesDownloaderTest
     {
-        private string configuration =
-            @"D:\dev\SubtitleDownloader\SubtitleDownloaderTests\OpenSubtitlesConfiguration.xml";
+        private string configuration = FileUtils.AssemblyDirectory + @"\..\..\..\SubtitleDownloader\Implementations\OpenSubtitles\OpenSubtitlesConfiguration.xml";
 
         private TestContext testContextInstance;
 
