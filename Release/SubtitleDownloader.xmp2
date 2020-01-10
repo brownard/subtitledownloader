@@ -247,14 +247,14 @@ Changelog 3.0.18
   <GeneralInfo>
     <Name>SubtitleDownloader</Name>
     <Id>50d7c352-8ae1-406d-b899-2131e03d4f1e</Id>
-    <Author>seco</Author>
+    <Author>seco, doskabouter</Author>
     <HomePage>https://www.team-mediaportal.com/extensions/movies-videos/subtitledownloader</HomePage>
     <ForumPage>https://forum.team-mediaportal.com/threads/subtitledownloader.71651/</ForumPage>
     <UpdateUrl>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=221&amp;cf_id=52</UpdateUrl>
     <Version>
       <Major>3</Major>
       <Minor>0</Minor>
-      <Build>18</Build>
+      <Build>19</Build>
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>Official subtitle sites/providers used by popular SubCentral plugin.
@@ -263,10 +263,11 @@ Changelog 3.0.18
 
 To use SubtitleDownloader with MediaPortal, you must install SubCentral plugin.</ExtensionDescription>
     <VersionDescription>- Make OpenSubtitles configurable (username/password/language)
-</VersionDescription>
+- Fixed podnapisi
+- Cleanup of obsolete subtitlesources</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=221&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2017-10-27T16:32:19</ReleaseDate>
+    <ReleaseDate>2020-01-10T21:04:51.9604975+01:00</ReleaseDate>
     <Tags>subtitles, subs, closed captions</Tags>
     <Location>.\[Name]-[Version].mpe1</Location>
     <Params>
