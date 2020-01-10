@@ -75,46 +75,6 @@ Click Next to continue or Cancel to exit Setup.</Value>
         <PanelName>Welcome Screen</PanelName>
         <WizardButtonsEnum>NextCancel</WizardButtonsEnum>
       </SectionItem>
-      <SectionItem Guid="7027b973-4f0a-460c-8e95-9eb9bffe1d11" Name="Readme Information" ConditionGroup="">
-        <Params>
-          <Items>
-            <SectionParam Name="Header Title">
-              <Value>Readme Information</Value>
-              <ValueType>String</ValueType>
-              <Description>Header title</Description>
-            </SectionParam>
-            <SectionParam Name="Header description">
-              <Value>Readme Information for [Name]</Value>
-              <ValueType>String</ValueType>
-              <Description>Description of section, shown in under section title</Description>
-            </SectionParam>
-            <SectionParam Name="Header image">
-              <Value />
-              <ValueType>File</ValueType>
-              <Description>Image in upper right part</Description>
-            </SectionParam>
-            <SectionParam Name="Readme text">
-              <Value>
-Changelog 3.0.18
-
-- Make OpenSubtitles configurable (username/password/language)</Value>
-              <ValueType>String</ValueType>
-              <Description>The readme text</Description>
-            </SectionParam>
-            <SectionParam Name="Rreadme text file">
-              <Value />
-              <ValueType>File</ValueType>
-              <Description>The readme file should be RTF file</Description>
-            </SectionParam>
-          </Items>
-        </Params>
-        <Actions>
-          <Items />
-        </Actions>
-        <IncludedGroups />
-        <PanelName>Readme Information</PanelName>
-        <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
-      </SectionItem>
       <SectionItem Guid="9b06c900-17bb-463e-9613-2dadbac2e735" Name="Tree View Selector" ConditionGroup="">
         <Params>
           <Items>
