@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="OpenSubtitlesUserAgent" xml:space="preserve">
-    <value>FIXME</value>
+    <value>subtitledownloader</value>
     <comment>User agent identifier string for OpenSubtitles API</comment>
   </data>
 </root>

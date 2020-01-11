@@ -42,7 +42,7 @@ namespace SubtitleDownloader.Implementations.OpenSubtitles
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(OpenSubtitlesConfiguration));
 
-                using (FileStream fileStream = new FileStream(configurationFile, FileMode.Open))
+                using (FileStream fileStream = new FileStream(configurationFile, FileMode.Open, FileAccess.Read))
                 {
                     this.configuration = (OpenSubtitlesConfiguration)serializer.Deserialize(fileStream);
                 }
