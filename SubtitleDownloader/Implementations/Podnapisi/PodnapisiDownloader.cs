@@ -31,7 +31,7 @@ namespace SubtitleDownloader.Implementations.Podnapisi
             {
                 url += "&sY=" + query.Year;
             }
-            return Search(url, query);
+            return Search(url, query,"");
         }
 
         public List<Subtitle> SearchSubtitles(EpisodeSearchQuery query)
@@ -41,7 +41,7 @@ namespace SubtitleDownloader.Implementations.Podnapisi
                          + "&sTS=" + query.Season
                          + "&sTE=" + query.Episode;
 
-            return Search(url, query);
+            return Search(url, query, query.SerieTitle);
         }
 
         public List<Subtitle> SearchSubtitles(ImdbSearchQuery query)
@@ -88,11 +88,12 @@ namespace SubtitleDownloader.Implementations.Podnapisi
             set { searchTimeout = value; }
         }
 
-        private List<Subtitle> Search(string baseUrl, SubtitleSearchQuery query)
+        private List<Subtitle> Search(string baseUrl, SubtitleSearchQuery query, string title)
         {
             Dictionary<string, string> languages = ParseLanguageOptions();
 
-            List<Subtitle> results = new List<Subtitle>();
+            List<Subtitle> exactResults = new List<Subtitle>();
+            List<Subtitle> restResults = new List<Subtitle>();
 
             foreach (string languageName in languages.Keys)
             {
@@ -103,12 +104,12 @@ namespace SubtitleDownloader.Implementations.Podnapisi
 
                 string url = baseUrl + "&sJ=" + languageId;
 
-                HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
                 if (SearchTimeout > 0)
                     request.Timeout = SearchTimeout * 1000;
 
-                HttpWebResponse response = (HttpWebResponse) request.GetResponse();
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load(response.GetResponseStream());
@@ -125,6 +126,11 @@ namespace SubtitleDownloader.Implementations.Podnapisi
 
                     if (!String.IsNullOrEmpty(releaseName))
                     {
+                        List<Subtitle> results;
+                        if (subtitleNode.SelectSingleNode("title")?.InnerText.ToLowerInvariant() == title.ToLowerInvariant())
+                            results = exactResults;
+                        else
+                            results = restResults;
                         if (releaseName.Contains(" "))
                         {
                             var releases = releaseName.Split(' ');
@@ -145,7 +151,8 @@ namespace SubtitleDownloader.Implementations.Podnapisi
                     }
                 }
             }
-            return results;
+            exactResults.AddRange(restResults);
+            return exactResults;
         }
 
         private Dictionary<string, string> ParseLanguageOptions()
