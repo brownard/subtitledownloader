@@ -31,7 +31,7 @@ namespace SubtitleDownloader.Implementations.Podnapisi
             {
                 url += "&sY=" + query.Year;
             }
-            return Search(url, query,"");
+            return Search(url, query, "");
         }
 
         public List<Subtitle> SearchSubtitles(EpisodeSearchQuery query)
@@ -56,7 +56,7 @@ namespace SubtitleDownloader.Implementations.Podnapisi
             string archiveFile = FileUtils.GetTempFileName();
 
             HtmlWeb web = new HtmlWeb();
-            web.PreRequest += request => 
+            web.PreRequest += request =>
             {
                 request.Accept = "*/*";
                 return true;
@@ -84,7 +84,7 @@ namespace SubtitleDownloader.Implementations.Podnapisi
 
         public int SearchTimeout
         {
-            get { return searchTimeout;  }
+            get { return searchTimeout; }
             set { searchTimeout = value; }
         }
 
