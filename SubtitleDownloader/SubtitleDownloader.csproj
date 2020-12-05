@@ -69,6 +69,7 @@
       <HintPath>..\packages\SharpCompress.0.24.0\lib\net35\SharpCompress.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web" />
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
