@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Xml;
+using System.Web;
 using HtmlAgilityPack;
 using SubtitleDownloader.Core;
 using SubtitleDownloader.Util;
@@ -25,7 +26,7 @@ namespace SubtitleDownloader.Implementations.Podnapisi
         public List<Subtitle> SearchSubtitles(SearchQuery query)
         {
             string url = searchUrlBase
-                         + "&sK=" + query.Query;
+                         + "&sK=" + HttpUtility.UrlEncode(query.Query);
 
             if (query.Year.HasValue)
             {
@@ -37,7 +38,7 @@ namespace SubtitleDownloader.Implementations.Podnapisi
         public List<Subtitle> SearchSubtitles(EpisodeSearchQuery query)
         {
             string url = searchUrlBase
-                         + "&sK=" + query.SerieTitle
+                         + "&sK=" + HttpUtility.UrlEncode(query.SerieTitle)
                          + "&sTS=" + query.Season
                          + "&sTE=" + query.Episode;
 
