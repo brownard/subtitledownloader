@@ -123,32 +123,16 @@ namespace SubtitleDownloader.Implementations.Podnapisi
                     if (!String.IsNullOrEmpty(subtitleId))
                         subtitleId = subtitleId.Replace("http://", "https://");
 
-                    string releaseName = subtitleNode.SelectSingleNode("release")?.InnerText;
-
-                    if (!String.IsNullOrEmpty(releaseName))
+                    List<Subtitle> results;
+                    if (subtitleNode.SelectSingleNode("title")?.InnerText.ToLowerInvariant() == title.ToLowerInvariant())
+                        results = exactResults;
+                    else
+                        results = restResults;
+                    foreach (XmlNode release in subtitleNode.SelectNodes("releases/release"))
                     {
-                        List<Subtitle> results;
-                        if (subtitleNode.SelectSingleNode("title")?.InnerText.ToLowerInvariant() == title.ToLowerInvariant())
-                            results = exactResults;
-                        else
-                            results = restResults;
-                        if (releaseName.Contains(" "))
-                        {
-                            var releases = releaseName.Split(' ');
-
-                            foreach (var release in releases)
-                            {
-                                Subtitle subtitle = new Subtitle(subtitleId, release, release,
-                                                                 Languages.FindLanguageCode(languageName));
-                                results.Add(subtitle);
-                            }
-                        }
-                        else
-                        {
-                            Subtitle subtitle = new Subtitle(subtitleId, releaseName, releaseName,
-                                                             Languages.FindLanguageCode(languageName));
-                            results.Add(subtitle);
-                        }
+                        Subtitle subtitle = new Subtitle(subtitleId, release.InnerText, release.InnerText,
+                                                         Languages.FindLanguageCode(languageName));
+                        results.Add(subtitle);
                     }
                 }
             }
