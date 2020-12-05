@@ -164,6 +164,18 @@ namespace SubtitleDownloaderTests
             Assert.IsTrue(actual.Count == 0);
         }
 
+        [TestMethod()]
+        public void MovieSearchQuerySearchSubtitlesTest()
+        {
+            PodnapisiDownloader target = new PodnapisiDownloader();
+            SearchQuery query = new SearchQuery("Jupiter Ascending");
+            query.Year = 2015;
+
+            List<Subtitle> actual = target.SearchSubtitles(query);
+
+            Assert.IsTrue(actual.Count > 0);
+        }
+
         /// <summary>
         ///A test for SearchSubtitles
         ///</summary>
