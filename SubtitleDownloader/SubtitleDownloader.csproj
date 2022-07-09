@@ -1,22 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\ILMerge.3.0.29\build\ILMerge.props" Condition="Exists('..\packages\ILMerge.3.0.29\build\ILMerge.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{87357575-4132-4B4A-A0AC-D82FB5DBDF68}</ProjectGuid>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SubtitleDownloader</RootNamespace>
-    <AssemblyName>SubtitleDownloader</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -32,88 +18,29 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+  <PropertyGroup>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>
-    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
-      <HintPath>..\packages\CookComputing.XmlRPCv2.2.5.0\lib\CookComputing.XmlRpcV2.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.11.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlAgilityPack.1.11.17\lib\Net35\HtmlAgilityPack.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpCompress, Version=0.24.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpCompress.0.24.0\lib\net35\SharpCompress.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.XML" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Core\ISubtitleDownloader.cs" />
-    <Compile Include="Implementations\OpenSubtitles\OpenSubtitlesConfiguration.cs" />
-    <Compile Include="Implementations\OpenSubtitles\OpenSubtitlesDownloader.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\Subtitle.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Configuration.Designer.cs">
+    <Compile Update="Configuration.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Configuration.resx</DependentUpon>
     </Compile>
-    <Compile Include="Core\SubtitleDownloaderFactory.cs" />
-    <Compile Include="Implementations\MovieSubtitles\MovieSubtitlesDownloader.cs" />
-    <Compile Include="Implementations\Podnapisi\PodnapisiDownloader.cs" />
-    <Compile Include="Implementations\Subscene\SubsceneDownloader.cs" />
-    <Compile Include="Core\Languages.cs" />
-    <Compile Include="Implementations\SubtitleSource\SubtitleSourceDownloader.cs" />
-    <Compile Include="Implementations\TVSubtitles\TvSubtitlesDownloader.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Core\SearchQueries.cs" />
-    <Compile Include="Util\Decoder.cs" />
-    <Compile Include="Util\FileUtils.cs" />
-    <Compile Include="Util\SimilarityUtils.cs" />
-    <Compile Include="Util\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Configuration.resx">
+    <EmbeddedResource Update="Configuration.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Configuration.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
@@ -136,28 +63,25 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release (
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.17" />
+    <PackageReference Include="ILMerge" Version="3.0.29">
+      <GeneratePathProperty>True</GeneratePathProperty>
+    </PackageReference>
+    <PackageReference Include="Kveer.XmlRPC" Version="1.2.0" />
+    <PackageReference Include="SharpCompress" Version="0.24.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.330701">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if $(ConfigurationName) == Release (
 cd $(TargetDir)
 del SubtitleDownloader_UNMERGED.dll
 ren SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll
-call "$(SolutionDir)packages\ILMerge.3.0.29\tools\net452\ilmerge.exe" /out:SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll CookComputing.XmlRpcV2.dll HtmlAgilityPack.dll SharpCompress.dll
+call &quot;$(PkgILMerge)\tools\net452\ilmerge.exe&quot; /out:SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll KVeer.XmlRpc.dll HtmlAgilityPack.dll SharpCompress.dll
 cd $(SolutionDir)Release
-"$(ProgramFiles)\Team MediaPortal\MediaPortal\MpeMaker" SubtitleDownloader.xmp2 /B /UpdateXML
-)</PostBuildEvent>
-  </PropertyGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\ILMerge.3.0.29\build\ILMerge.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.3.0.29\build\ILMerge.props'))" />
+&quot;$(MSBuildProgramFiles32)\Team MediaPortal\MediaPortal\MpeMaker&quot; SubtitleDownloader.xmp2 /B /UpdateXML
+)" />
   </Target>
 </Project>
