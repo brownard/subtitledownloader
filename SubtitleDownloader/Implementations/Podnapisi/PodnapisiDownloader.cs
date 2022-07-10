@@ -6,6 +6,9 @@ using System.Xml;
 using HtmlAgilityPack;
 using SubtitleDownloader.Core;
 using SubtitleDownloader.Util;
+#if NETFRAMEWORK
+using System.Web;
+#endif
 
 namespace SubtitleDownloader.Implementations.Podnapisi
 {
@@ -24,8 +27,13 @@ namespace SubtitleDownloader.Implementations.Podnapisi
 
         public List<Subtitle> SearchSubtitles(SearchQuery query)
         {
+#if NETFRAMEWORK
+            string encodedQuery = HttpUtility.UrlEncode(query.Query);
+#else
+            string encodedQuery = WebUtility.UrlEncode(query.Query);
+#endif
             string url = searchUrlBase
-                         + "&sK=" + WebUtility.UrlEncode(query.Query);
+                         + "&sK=" + encodedQuery;
 
             if (query.Year.HasValue)
             {
@@ -36,8 +44,13 @@ namespace SubtitleDownloader.Implementations.Podnapisi
 
         public List<Subtitle> SearchSubtitles(EpisodeSearchQuery query)
         {
+#if NETFRAMEWORK
+            string encodedQuery = HttpUtility.UrlEncode(query.SerieTitle);
+#else
+            string encodedQuery = WebUtility.UrlEncode(query.SerieTitle);
+#endif
             string url = searchUrlBase
-                         + "&sK=" + WebUtility.UrlEncode(query.SerieTitle)
+                         + "&sK=" + encodedQuery
                          + "&sTS=" + query.Season
                          + "&sTE=" + query.Episode;
 
