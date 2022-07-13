@@ -34,7 +34,7 @@
       <GeneratePathProperty>True</GeneratePathProperty>
     </PackageReference>
     <PackageReference Include="Kveer.XmlRPC" Version="1.2.0" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
-	<PackageReference Include="CookComputing.XmlRPCv2" Version="2.5.0" Condition="'$(TargetFramework)' != 'netstandard2.0'" />
+	<PackageReference Include="CookComputing.XmlRPCv2" Version="2.5.0" Condition="'$(TargetFramework)' == 'net35'" />
     <PackageReference Include="SharpCompress" Version="0.24.0" />
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.330701">
       <PrivateAssets>all</PrivateAssets>
@@ -44,6 +44,7 @@
     <Reference Include="System.Web" Condition="'$(TargetFramework)' != 'netstandard2.0'" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;cd $(TargetDir)&#xD;&#xA;del SubtitleDownloader_UNMERGED.dll&#xD;&#xA;ren SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll&#xD;&#xA;call &quot;$(PkgILMerge)\tools\net452\ilmerge.exe&quot; /out:SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll KVeer.XmlRpc.dll HtmlAgilityPack.dll SharpCompress.dll&#xD;&#xA;cd $(SolutionDir)Release&#xD;&#xA;&quot;$(MSBuildProgramFiles32)\Team MediaPortal\MediaPortal\MpeMaker&quot; SubtitleDownloader.xmp2 /B /UpdateXML&#xD;&#xA;)" />
+    <Exec Condition="'$(ConfigurationName)' == 'Release' And '$(TargetFramework)' == 'net35'" Command="cd $(TargetDir)&#xD;&#xA;del SubtitleDownloader_UNMERGED.dll&#xD;&#xA;ren SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll&#xD;&#xA;call &quot;$(PkgILMerge)\tools\net452\ilmerge.exe&quot; /out:SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll CookComputing.XmlRPCv2.dll HtmlAgilityPack.dll SharpCompress.dll&#xD;&#xA;cd $(SolutionDir)Release&#xD;&#xA;&quot;$(MSBuildProgramFiles32)\Team MediaPortal\MediaPortal\MpeMaker&quot; SubtitleDownloader.xmp2 /B /UpdateXML" />
+    <Exec Condition="'$(ConfigurationName)' == 'Release' And '$(TargetFramework)' == 'netstandard2.0'" Command="cd $(TargetDir)&#xD;&#xA;del SubtitleDownloader_UNMERGED.dll&#xD;&#xA;ren SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll&#xD;&#xA;call &quot;$(PkgILMerge)\tools\net452\ilmerge.exe&quot; /out:SubtitleDownloader.dll SubtitleDownloader_UNMERGED.dll Kveer.XmlRpc.dll HtmlAgilityPack.dll SharpCompress.dll" />
   </Target>
 </Project>
