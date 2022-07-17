@@ -1,12 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net35;netstandard2.0</TargetFrameworks>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <OutputType>Library</OutputType>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	<Version>3.0.20.2</Version>
+    <Authors>seco,doskabouter</Authors>
+    <Description>SubtitleDownloader is a C# API library for downloading subtitles from various multi-language subtitle sites. It was originally developed to be used with MediaPortal plugins but it can be also used in any .NET project.</Description>
+    <PackageProjectUrl>https://github.com/doskabouter/subtitledownloader</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doskabouter/subtitledownloader</RepositoryUrl>
+    <PackageReleaseNotes>Support NetStandard2.0</PackageReleaseNotes>
+    <Version>$(Version)</Version>
+    <AssemblyVersion>$(AssemblyVersion)</AssemblyVersion>
+    <FileVersion>$(AssemblyVersion)</FileVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Copyright 2022</Copyright>
   </PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -29,13 +40,22 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.17" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.17">
+      <PrivateAssets>all</PrivateAssets>
+	</PackageReference>
     <PackageReference Include="ILMerge" Version="3.0.29">
       <GeneratePathProperty>True</GeneratePathProperty>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Kveer.XmlRPC" Version="1.2.0" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
-	<PackageReference Include="CookComputing.XmlRPCv2" Version="2.5.0" Condition="'$(TargetFramework)' == 'net35'" />
-    <PackageReference Include="SharpCompress" Version="0.24.0" />
+    <PackageReference Include="Kveer.XmlRPC" Version="1.2.0" Condition="'$(TargetFramework)' == 'netstandard2.0'" >
+      <PrivateAssets>all</PrivateAssets>
+	</PackageReference>
+	<PackageReference Include="CookComputing.XmlRPCv2" Version="2.5.0" Condition="'$(TargetFramework)' == 'net35'" >
+      <PrivateAssets>all</PrivateAssets>
+	</PackageReference>
+    <PackageReference Include="SharpCompress" Version="0.24.0" >
+      <PrivateAssets>all</PrivateAssets>
+	</PackageReference>
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.330701">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
