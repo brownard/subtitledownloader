@@ -18,6 +18,7 @@
     <FileVersion>$(AssemblyVersion)</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright 2022</Copyright>
+    <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -26,14 +27,30 @@
     <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Configuration.Designer.cs">
-      <AutoGen>True</AutoGen>
+    <Compile Include="Configuration.Designer.cs">
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>Configuration.resx</DependentUpon>
     </Compile>
+    <Compile Include="Core\ISubtitleDownloader.cs" />
+    <Compile Include="Core\Languages.cs" />
+    <Compile Include="Core\SearchQueries.cs" />
+    <Compile Include="Core\Subtitle.cs" />
+    <Compile Include="Core\SubtitleDownloaderFactory.cs" />
+    <Compile Include="Implementations\MovieSubtitles\MovieSubtitlesDownloader.cs" />
+    <Compile Include="Implementations\OpenSubtitles\OpenSubtitlesConfiguration.cs" />
+    <Compile Include="Implementations\OpenSubtitles\OpenSubtitlesDownloader.cs" />
+    <Compile Include="Implementations\Podnapisi\PodnapisiDownloader.cs" />
+    <Compile Include="Implementations\Subscene\SubsceneDownloader.cs" />
+    <Compile Include="Implementations\SubtitleSource\SubtitleSourceDownloader.cs" />
+    <Compile Include="Implementations\TVSubtitles\TvSubtitlesDownloader.cs" />
+    <Compile Include="Util\Decoder.cs" />
+    <Compile Include="Util\FileUtils.cs" />
+    <Compile Include="Util\SimilarityUtils.cs" />
+    <Compile Include="Util\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Configuration.resx">
+    <EmbeddedResource Include="Configuration.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Configuration.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
@@ -47,13 +64,13 @@
       <GeneratePathProperty>True</GeneratePathProperty>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Kveer.XmlRPC" Version="1.2.0" Condition="'$(TargetFramework)' == 'netstandard2.0'" >
+    <PackageReference Include="Kveer.XmlRPC" Version="1.2.0" Condition="'$(TargetFramework)' == 'netstandard2.0'">
       <PrivateAssets>all</PrivateAssets>
 	</PackageReference>
-	<PackageReference Include="CookComputing.XmlRPCv2" Version="2.5.0" Condition="'$(TargetFramework)' == 'net35'" >
+	<PackageReference Include="CookComputing.XmlRPCv2" Version="2.5.0" Condition="'$(TargetFramework)' == 'net35'">
       <PrivateAssets>all</PrivateAssets>
 	</PackageReference>
-    <PackageReference Include="SharpCompress" Version="0.24.0" >
+    <PackageReference Include="SharpCompress" Version="0.24.0">
       <PrivateAssets>all</PrivateAssets>
 	</PackageReference>
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.330701">
